@@ -1,0 +1,32 @@
+{
+  "name": "react-ecommerce",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@stripe/react-stripe-js": "^1.11.0",
+    "@stripe/stripe-js": "^1.38.1",
+    "@types/events": "^3.0.0",
+    "@types/node": "^18.7.23",
+    "@types/stripe": "^8.0.417",
+    "dotenv": "^16.0.2",
+    "events": "^3.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "stripe": "^10.11.0",
+    "styled-components": "^5.3.5"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "@types/styled-components": "^5.1.26",
+    "@vitejs/plugin-react": "^2.1.0",
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0"
+  }
+}
