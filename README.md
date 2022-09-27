@@ -40,4 +40,4 @@ Yarn dev
 
 ![checkout_page_product](https://github.com/Jhongamers/Vite-Checkout-Stripe/blob/master/images/system-checkout-page-product.png)
 
-![checkout_page](https://github.com/Jhongamers/Vite-Checkout-Stripe/blob/master/images/checkout-page.png)
+![checkout_pagee](https://github.com/Jhongamers/Vite-Checkout-Stripe/blob/master/images/checkout-page.png)
