@@ -1,6 +1,5 @@
 import React from 'react';
 import { Stripe,loadStripe } from '@stripe/stripe-js';
-import { PUBLIC_KEY } from '../../env';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -16,7 +15,6 @@ let stripePromisse: Promise<Stripe | null>;
 
 const getStripe = () =>{
     if(!stripePromisse){
-      console.log(PUBLIC_KEY);
       stripePromisse = loadStripe(`${import.meta.env.VITE_PUBLIC_KEY}`);
     }
     return stripePromisse;
