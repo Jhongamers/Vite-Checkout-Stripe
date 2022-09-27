@@ -1,29 +1,38 @@
 import React from 'react';
 import { Stripe,loadStripe } from '@stripe/stripe-js';
-
+import { PUBLIC_KEY } from '../../env';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
+
+
+interface Props{
+
+  id: string;
+
+}
 
 let stripePromisse: Promise<Stripe | null>;
 
 const getStripe = () =>{
     if(!stripePromisse){
-      stripePromisse = loadStripe(`pk_test_51LlJfRAKq1PRN8BJNMDazQNUBenZch9CW9s3T8LoZn2O9dtHbUTAamj2Jyriw302w8Pkt3LyDrdYTPEeQO8Efj2v00QvKTAgui`);
+      console.log(PUBLIC_KEY);
+      stripePromisse = loadStripe(`${import.meta.env.VITE_PUBLIC_KEY}`);
     }
     return stripePromisse;
 }
-const CheckButton: React.FC = () => {
+const CheckButton: React.FC<Props> = ({id}) => {
    
   async function handleClick () {
     
     // When the customer clicks on the button, redirect them to Checkout.
     const stripe = await getStripe();
-    const { error } = await stripe.redirectToCheckout({
+    const { error } = await stripe!.redirectToCheckout({
       lineItems: [{
-        price: 'price_1Llo25AKq1PRN8BJ8odUKWk7', // Replace with the ID of your price
+        price: `${id}`, // Replace with the ID of your price
         quantity: 1,
-      }],
+      },
+      ],
       mode: 'payment',
       successUrl: 'http://127.0.0.1:5173/success',
       cancelUrl: 'http://127.0.0.1:5173/cancel',
@@ -34,7 +43,7 @@ const CheckButton: React.FC = () => {
   };
   return (
     <button role="link" onClick={handleClick}>
-      Checkout
+      Buy Item
     </button>
   );
 }
